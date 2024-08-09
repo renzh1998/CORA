@@ -19,6 +19,7 @@ public:
   // Receive data from context. With specified length, return a pointer to the data
   // blocking
   void* RecvData(ProtoContext *context, int party_id, size_t len);
+  void* RecvRandAccess(ProtoContext *context, int party_id, int64_t offset, size_t len);
 
 private:
   CORAMem* _mem;

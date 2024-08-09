@@ -20,3 +20,11 @@ void* CORA::RecvData(ProtoContext *context, int party_id, size_t len) {
   }
   return ptr;
 }
+
+void* CORA::RecvRandAccess(ProtoContext *context, int party_id, int64_t offset, size_t len) {
+  void* ptr = context->GetRemote(party_id, offset);
+  while (ptr == nullptr) {
+    ptr = context->GetRemote(party_id, offset);
+  }
+  return ptr;
+}
